@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+}
+.container{
+    font-family: "Quicksand", sans-serif;
+    width: 100%;
+    max-width: 320px;
+    border-radius: 12px;
+    box-shadow: #e1e0e7 6px 2px 16px 0px, #EF476F -6px -2px 16px 0px;
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    padding: 16px;
+}
+
+
+#parent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    font-size: 24px;
+    font-weight: 600;
+    background-color: #ffffff;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #000000
+}
+.btn:hover{
+    background-color: #fffefe;
+}
+.fun-btn{
+    background-color: #ffffff;
+}
+.fun-btn:hover{
+    background-color: #ffffff;
+}  
+#equal {
+    grid-row: span 2 / span 2;
+    align-items: end;
+    background-color: #99000D;
+}
+
+#equal:hover{
+    background-color: #bd0010;
+}
+
+#zero {
+    grid-column: span 2 / span 2;
+}
+
+#dot {
+    grid-column-start: 3;
+}
+
+#result{
+    font-size: 64px;
+    font-weight: 600;
+    text-align: right;
+    padding-block: 12px ;
+}
+
+#output > div{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 24px;
+    gap: 12px;
+}
+
+#question{
+    color: #96959A;
+    height: 46px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#backspace{
+    cursor: pointer;
+    color: #ffffff;
+}
+
+#his{
+    display: none;
+    padding: 12px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    margin-block: 12px;
+}   
+#CHis{
+    display: none;
+    background-color: #000000;
+    padding: 8px 12px;
+    border-radius: 12px;
+    width: min-content;
+    cursor: pointer;
+} 
+#view-history, #view-calculator{
+    cursor: pointer;
+} 
+#view-calculator{
+    display: none;
+}

@@ -1,0 +1,185 @@
+/* ==== RESET ==== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #808080, #000000, #4f535c);
+    background-attachment: fixed;
+    color: #f1f5f9;
+    line-height: 1.6;
+}
+
+/* ==== Glass Effect ==== */
+.glass {
+    background: rgba(236, 236, 236, 0.1);
+    padding: 35px;
+    border-radius: 22px;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.397);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
+}
+
+/* ==== Hero Section ==== */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    margin-top: 10px;
+}
+
+.highlight {
+    color: #89d4f7;
+    font-weight: 700;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    margin-top: 25px;
+    font-size: 1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    background: rgba(211, 210, 210, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #ffffff;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* ===== Sections ===== */
+.section {
+    max-width: 950px;
+    margin: 80px auto;
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 2.1rem;
+    margin-bottom: 25px;
+    color: #93c5fd;
+    letter-spacing: .5px;
+}
+
+/* ==== Personal Info ==== */
+.info-box {
+    margin-top: 25px;
+    border-radius: 20px;
+    padding: 25px;
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgb(255, 255, 255);
+    box-shadow: 0 0 20px rgb(255, 255, 255);
+}
+
+.info-box .text {
+    max-width: 500px;
+    text-align: left;
+}
+
+/* ===== Slider Section ===== */
+.slider-container {
+    width: 90%;
+    margin: 35px auto;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.12);
+    border: 2px solid rgb(255, 255, 255);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 25px rgb(0, 0, 0);
+}
+
+.slider {
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.slides {
+    display: flex;
+    animation: slide 14s infinite;
+}
+
+.slide {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.slide:hover {
+    transform: scale(1.03);
+}
+
+/* Slider Animation */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(0); }
+
+    38% { transform: translateX(-100%); }
+    66% { transform: translateX(-100%); }
+
+    72% { transform: translateX(-200%); }
+    100% { transform: translateX(-200%); }
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #cbd5e1;
+    margin-top: 60px;
+    opacity: 0.8;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .slide {
+        height: 180px;
+    }
+    .slider-container {
+        width: 100%;
+    }
+    .info-box {
+        text-align: center;
+    }
+    .info-box .text {
+        text-align: center;
+    }
+}
