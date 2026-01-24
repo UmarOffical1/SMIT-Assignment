@@ -1,4 +1,12 @@
-/* ===== Global ===== */
+:root {
+  --bg: #0b0f1a;
+  --glass: rgba(255, 255, 255, 0.08);
+  --border: rgba(255, 255, 255, 0.18);
+  --text: #eaeaea;
+  --accent: #6ae3ff;
+  --gradient: linear-gradient(135deg, #6ae3ff, #9b7bff);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,89 +15,103 @@
 }
 
 body {
-  background: #000000; /* Light soft background */
-  color: #1a1a1a;
+  background: radial-gradient(circle at top, #121a3a, var(--bg));
+  color: var(--text);
+}
+
+/* ===== GLASS ===== */
+.glass {
+  background: var(--glass);
+  backdrop-filter: blur(18px);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 /* ===== NAVBAR ===== */
 .navbar {
-  width: 100%;
   position: fixed;
   top: 0;
-  padding: 20px 40px;
+  width: 100%;
+  padding: 18px 40px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
-  color: #333;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
-.navbar ul {
+.nav-links {
   display: flex;
-  gap: 25px;
-}
-
-.navbar ul li {
   list-style: none;
+  gap: 30px;
 }
 
-.navbar ul li a {
-  color: #333;
+.nav-links a {
+  color: var(--text);
   text-decoration: none;
   transition: 0.3s;
 }
 
-.navbar ul li a:hover {
-  color: #ffffff;
+.nav-links a:hover {
+  color: var(--accent);
 }
 
-/* ===== HERO ===== */
-.hero {
-  height: 60vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 120px;
+/* ===== DROPDOWN ===== */
+.dropdown {
+  position: relative;
 }
 
-.hero-content {
-  text-align: center;
+.dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: #0f152c;
+  min-width: 180px;
+  border-radius: 14px;
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: 0.3s;
 }
 
-.highlight {
-  color: #007bff;
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-/* ===== GLASS EFFECT ===== */
-.glass {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(15px);
-  border-radius: 20px;
-  padding: 35px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+.dropdown-menu a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--text);
 }
 
-/* ===== Sections ===== */
+/* ===== SECTIONS ===== */
 .section {
   width: 85%;
-  margin: 80px auto;
-  padding: 40px;
+  margin: 120px auto;
+  padding: 45px;
   text-align: center;
 }
 
-/* ===== Profile Section ===== */
+.section h2 {
+  margin-bottom: 20px;
+  color: var(--accent);
+}
+
+/* ===== PROFILE ===== */
 .info-box {
   display: flex;
   gap: 30px;
-  margin-top: 25px;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -97,47 +119,77 @@ body {
 .profile-img {
   width: 220px;
   height: 220px;
-  object-fit: cover;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  border: 2px solid var(--accent);
 }
 
-/* ===== Buttons ===== */
+/* ===== PREVIEW ===== */
+.preview {
+  width: 80%;
+  border-radius: 18px;
+  margin: 20px 0;
+}
+
+/* ===== BUTTON ===== */
 .btn {
   display: inline-block;
   margin: 10px;
-  padding: 12px 25px;
-  background: linear-gradient(135deg, #89f7fe, #66a6ff);
-  color: white;
+  padding: 12px 28px;
+  background: var(--gradient);
+  color: #000;
   border-radius: 30px;
   text-decoration: none;
-  transition: 0.3s;
   font-weight: 600;
+  transition: 0.3s;
 }
 
 .btn:hover {
   transform: scale(1.08);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px var(--accent);
 }
 
-/* ===== Slider ===== */
-.slider-container {
-  width: 80%;
-  margin: 20px auto;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-.slide {
-  width: 100%;
-  display: block;
-}
-
-/* ===== Footer ===== */
+/* ===== FOOTER ===== */
 .footer {
   text-align: center;
   padding: 25px;
-  margin-top: 40px;
-  color: #333;
+  margin-bottom: 40px;
+}
+.info-box {
+  justify-content: center;
+  text-align: center;
+}
+.info-box > div {
+  max-width: 600px;
+}
+/* ===== PERSONAL SECTION HIGHLIGHT ===== */
+.personal-highlight {
+  border: 2px solid #6ae3ff;
+  box-shadow:
+    0 0 25px rgba(106, 227, 255, 0.35),
+    0 0 60px rgba(155, 123, 255, 0.25);
+  position: relative;
+}
+
+/* Soft glow top line */
+.personal-highlight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #6ae3ff, transparent);
+}
+.name {
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #6ae3ff, #9b7bff);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 10px;
+}
+.personal-highlight p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #dcdcdc;
 }
