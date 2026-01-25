@@ -1,128 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Umar | Portfolio</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 
   <!-- AOS -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<script>
-  AOS.init({ duration: 900, once: true });
-</script>
+  <script>
+    AOS.init({ duration: 900, once: true });
+  </script>
 
-<!-- ===== NAVBAR ===== -->
-<nav class="navbar glass">
-  <h2 class="logo">Umar.dev</h2>
+  <!-- ===== NAV ===== -->
+  <nav class="navbar glass">
+    <h2 class="logo">Umar.dev</h2>
 
-  <ul class="nav-links">
-    <li><a href="#personal">Personal</a></li>
+    <ul class="nav-links">
+      <li><a href="#personal">Personal</a></li>
 
-    <li class="dropdown">
-      <a href="#">HTML ▾</a>
-      <ul class="dropdown-menu">
-        <li><a href="#html">Linking Assignment</a></li>
-      </ul>
-    </li>
+      <li class="dropdown">
+        <a href="#">HTML ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="#html">Linking Assignment</a></li>
+        </ul>
+      </li>
 
-    <li class="dropdown">
-      <a href="#">CSS ▾</a>
-      <ul class="dropdown-menu">
-        <li><a href="#css">Google Form</a></li>
-        <li><a href="#upper">Upper Page</a></li>
-        <li><a href="#palette">Color Palette</a></li>
-        <li><a href="#apple">Apple Clone</a></li>
-      </ul>
-    </li>
+      <li class="dropdown">
+        <a href="#">CSS ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="#css">Google Form</a></li>
+          <li><a href="#upper">Upper Page</a></li>
+          <li><a href="#palette">Color Palette</a></li>
+          <li><a href="#apple">Apple Clone</a></li>
+        </ul>
+      </li>
 
-    <li class="dropdown">
-      <a href="#">JavaScript ▾</a>
-      <ul class="dropdown-menu">
-        <li><a href="#calculator">Calculator</a></li>
-        <li><a href="#clock">Digital Clock</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+      <li class="dropdown">
+        <a href="#">JavaScript ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="#calculator">Calculator</a></li>
+          <li><a href="#clock">Digital Clock</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 
-<!-- ===== PERSONAL ===== -->
-<section id="personal" class="section glass personal-highlight" data-aos="zoom-in">
+  <!-- ===== PERSONAL ===== -->
+  <section id="personal" class="section glass personal-highlight" data-aos="zoom-in">
+
+  <img src="./Screenshot 2025-11-16 111733.png" alt="Profile Image" class="profile-img">
+
   <h2>Personal Information</h2>
+  <h3 class="name">Muhammad Umar Raza</h3>
 
-  <div class="info-box">
-    <!-- <img src="./Screenshot 2025-11-16 111733.png" class="profile-img" alt="Profile"> -->
+  <p>Beginner Web Developer learning HTML, CSS & JavaScript.</p>
 
-    <div>
-<h3 class="name">Muhammad Umar Raza</h3>
-      <p><strong>About:</strong> Beginner Web Developer learning modern UI with HTML, CSS & JavaScript.</p>
+  <a href="https://github.com/UmarOffical1" target="_blank" class="btn">GitHub</a>
+  <a href="#" class="btn">LinkedIn</a>
 
-      <a href="https://github.com/UmarOffical1" target="_blank" class="btn">GitHub</a>
+</section>
 
-      <div class="social-links">
-        <a href="#" class="btn">Instagram</a>
-        <a href="#" class="btn">Facebook</a>
-        <a href="#" class="btn">LinkedIn</a>
-      </div>
+  <!-- ===== HTML ===== -->
+  <section id="html" class="section glass" data-aos="fade-up">
+    <h2>HTML – Linking Assignment</h2>
+    <img src="./582ffef5-4251-4616-83c6-1d9dfcffc255.webp" class="preview">
+    <div class="buttons">
+      <a href="./HTML/Assignment1/index.html" target="_blank" class="btn">Live Preview</a>
+      <a href="#" class="btn">View Code</a>
     </div>
-  </div>
-</section>
 
-<!-- ===== HTML ===== -->
-<section id="html" class="section glass" data-aos="fade-up">
-  <h2>HTML – Linking Assignment</h2>
-  <img src="./582ffef5-4251-4616-83c6-1d9dfcffc255.webp" class="preview">
-  <a href="./HTML/Assignment1/index.html" class="btn">Live Preview</a>
-  <a href="#" class="btn">View Code</a>
-</section>
+  </section>
 
-<!-- ===== CSS ===== -->
-<section id="css" class="section glass" data-aos="fade-up">
-  <h2>CSS – Google Form</h2>
-  <img src="./Google Form.webp" class="preview">
-  <a href="./css/Assignment_1/index.html" class="btn">Live Preview</a>
-  <a href="#" class="btn">View Code</a>
-</section>
+  <!-- ===== CSS ===== -->
+  <section id="css" class="section glass" data-aos="fade-up">
+    <h2>CSS – Google Form</h2>
+    <img src="./Google Form.webp" class="preview">
+    <div class="buttons">
+      <a href="./css/Assignment_1/index.html" target="_blank" class="btn">Live Preview</a>
+      <a href="#" class="btn">View Code</a>
+    </div>
 
-<section id="upper" class="section glass" data-aos="fade-up">
-  <h2>Upper Webpage</h2>
-  <img src="./Upper Webpage1.webp" class="preview">
-</section>
+  </section>
 
-<section id="palette" class="section glass" data-aos="fade-up">
-  <h2>Flat UI Color Palette</h2>
-  <img src="./Flat UI Color Palatte.webp" class="preview">
-</section>
+  <section id="upper" class="section glass" data-aos="fade-up">
+    <h2>Upper Webpage</h2>
+    <img src="./Upper Webpage1.webp" class="preview">
+    <div class="buttons">
+      <a href="./css/Assignment_2/index.html" target="_blank" class="btn">Live Preview</a>
+      <a href="#" class="btn">View Code</a>
+    </div>
 
-<section id="apple" class="section glass" data-aos="fade-up">
-  <h2>Apple Clone</h2>
-  <img src="./apple.webp" class="preview">
-</section>
+  </section>
 
-<!-- ===== JS ===== -->
-<section id="calculator" class="section glass" data-aos="fade-up">
-  <h2>JavaScript Calculator</h2>
-  <img src="./Screenshot 2026-01-14 202357.png" class="preview">
-</section>
+  <section id="palette" class="section glass" data-aos="fade-up">
+    <h2>Flat UI Color Palette</h2>
+    <img src="./Flat UI Color Palatte.webp" class="preview">
+    <div class="buttons">
+      <a href="./css/Assignment3/" target="_blank" class="btn">Live Preview</a>
+      <a href="#" class="btn">View Code</a>
+    </div>
 
-<section id="clock" class="section glass" data-aos="fade-up">
-  <h2>Digital Clock</h2>
-  <img src="./Screenshot 2026-01-23 184335.png" class="preview">
-</section>
+  </section>
 
-<footer class="footer glass">
-  <p>© 2026 Muhammad Umar Raza</p>
-</footer>
+  <section id="apple" class="section glass" data-aos="fade-up">
+    <h2>Apple Clone</h2>
+    <img src="./apple.webp" class="preview">
+    <div class="buttons">
+      <a href="./css/Assignment_4/" target="_blank" class="btn">Live Preview</a>
+      <a href="#" class="btn">View Code</a>
+    </div>
+
+  </section>
+
+  <!-- ===== JS ===== -->
+  <section id="calculator" class="section glass" data-aos="fade-up">
+    <h2>JavaScript Calculator</h2>
+    <img src="./Screenshot 2026-01-14 202357.png" class="preview">
+    <div class="buttons">
+      <a href="./Javascript/Calculator/index.html" target="_blank" class="btn">Live Preview</a>
+      <a href="#" class="btn">View Code</a>
+    </div>
+
+  </section>
+
+  <section id="clock" class="section glass" data-aos="fade-up">
+    <h2>Digital Clock</h2>
+    <img src="./Screenshot 2026-01-23 184335.png" class="preview">
+    <div class="buttons">
+      <a href="./Javascript/Clock/index.html" target="_blank" class="btn">Live Preview</a>
+      <a href="#" class="btn">View Code</a>
+    </div>
+
+  </section>
+
+  <footer class="footer glass">
+    <p>© 2026 Muhammad Umar Raza</p>
+  </footer>
 
 </body>
+
 </html>

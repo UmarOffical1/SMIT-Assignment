@@ -19,6 +19,17 @@ body {
   color: var(--text);
 }
 
+body {
+  padding-top: 110px;
+  /* height of navbar */
+}
+
+
+/* ===== FIX FOR FIXED NAV ===== */
+section {
+  scroll-margin-top: 120px;
+}
+
 /* ===== GLASS ===== */
 .glass {
   background: var(--glass);
@@ -44,7 +55,7 @@ body {
   font-size: 24px;
   font-weight: 700;
   background: var(--gradient);
-  /* -webkit-background-clip: text; */
+  -webkit-background-clip: text;
   color: transparent;
 }
 
@@ -57,7 +68,6 @@ body {
 .nav-links a {
   color: var(--text);
   text-decoration: none;
-  transition: 0.3s;
 }
 
 .nav-links a:hover {
@@ -97,37 +107,79 @@ body {
 
 /* ===== SECTIONS ===== */
 .section {
-  width: 85%;
-  margin: 120px auto;
-  padding: 45px;
+  width: 90%;
+  margin: 50px auto;
+  padding: 35px 20px;
   text-align: center;
 }
+
 
 .section h2 {
   margin-bottom: 20px;
   color: var(--accent);
 }
 
+.buttons {
+  margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+  .section {
+    margin: 70px auto;
+  }
+
+  .preview {
+    width: 100%;
+  }
+}
+
+
+.profile-img {
+  width: 120px;
+  /* ← reduce size here */
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  display: block;
+  margin: 0 auto 16px;
+  box-shadow: 0 0 20px rgba(106, 227, 255, 0.35);
+}
+
 /* ===== PROFILE ===== */
 .info-box {
   display: flex;
-  gap: 30px;
   justify-content: center;
-  flex-wrap: wrap;
+  text-align: center;
 }
 
-.profile-img {
-  width: 220px;
-  height: 220px;
-  border-radius: 20px;
-  border: 2px solid var(--accent);
+/* Fix mobile overlap issues */
+body {
+  padding-top: 110px;
+}
+
+
+@media (max-width: 600px) {
+  .profile-img {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+.name {
+  font-size: 28px;
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 /* ===== PREVIEW ===== */
 .preview {
-  width: 80%;
-  border-radius: 18px;
-  margin: 20px 0;
+  width: 100%;
+  max-width: 650px;
+  display: block;
+  margin: 20px auto;
 }
 
 /* ===== BUTTON ===== */
@@ -148,48 +200,15 @@ body {
   box-shadow: 0 0 20px var(--accent);
 }
 
+/* ===== PERSONAL HIGHLIGHT ===== */
+.personal-highlight {
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 25px rgba(106, 227, 255, 0.35);
+}
+
 /* ===== FOOTER ===== */
 .footer {
   text-align: center;
   padding: 25px;
   margin-bottom: 40px;
-}
-.info-box {
-  justify-content: center;
-  text-align: center;
-}
-.info-box > div {
-  max-width: 600px;
-}
-/* ===== PERSONAL SECTION HIGHLIGHT ===== */
-.personal-highlight {
-  border: 2px solid #6ae3ff;
-  box-shadow:
-    0 0 25px rgba(106, 227, 255, 0.35),
-    0 0 60px rgba(155, 123, 255, 0.25);
-  position: relative;
-}
-
-/* Soft glow top line */
-.personal-highlight::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 10%;
-  width: 80%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, #6ae3ff, transparent);
-}
-.name {
-  font-size: 28px;
-  font-weight: 700;
-  background: linear-gradient(135deg, #6ae3ff, #9b7bff);
-  /* -webkit-background-clip: text; */
-  color: transparent;
-  margin-bottom: 10px;
-}
-.personal-highlight p {
-  font-size: 16px;
-  line-height: 1.7;
-  color: #dcdcdc;
 }
