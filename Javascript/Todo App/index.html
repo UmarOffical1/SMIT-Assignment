@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Todo App</title>
+
+<style>
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* App container */
+.app {
+  background: #ffffff;
+  padding: 30px;
+  width: 420px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Heading */
+.app h2 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Input section */
+.app .input-box {
+  display: flex;
+  gap: 10px;
+}
+
+/* Input */
+.app input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+/* Add button */
+#addBtn {
+  padding: 12px 15px;
+  border: none;
+  background: #667eea;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* List */
+#taskList {
+  list-style: none;
+  margin-top: 20px;
+}
+
+/* List items */
+#taskList li {
+  background: #f9fafb;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Task text */
+#taskList span {
+  cursor: pointer;
+  flex: 1;
+}
+
+/* Buttons */
+#taskList button {
+  margin-left: 6px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Button colors */
+.done-btn { background: #10b981; color: white; }
+.edit-btn { background: #f59e0b; color: white; }
+.delete-btn { background: #ef4444; color: white; }
+
+/* Done task */
+.done {
+  text-decoration: line-through;
+  color: #9ca3af;
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+    <h2>Todo App</h2>
+
+    <div class="input-box">
+        <input type="text" id="taskInput" placeholder="Enter a new todo">
+        <button id="addBtn">Add</button>
+    </div>
+
+    <ul id="taskList"></ul>
+</div>
+
+<script>
+class Todo {
+    constructor(text) {
+        this.id = Date.now();
+        this.text = text;
+        this.done = false;
+    }
+}
+
+class TodoApp {
+    constructor() {
+        this.tasks = this.loadFromStorage();
+
+        this.input = document.getElementById("taskInput");
+        this.list = document.getElementById("taskList");
+        this.addBtn = document.getElementById("addBtn");
+
+        this.addBtn.addEventListener("click", () => this.addTask());
+
+        this.render();
+    }
+
+    addTask() {
+        const text = this.input.value.trim();
+        if (!text) return;
+
+        const newTask = new Todo(text);
+        this.tasks.push(newTask);
+
+        this.saveToStorage();
+        this.render();
+
+        this.input.value = "";
+    }
+
+    deleteTask(id) {
+        this.tasks = this.tasks.filter(task => task.id !== id);
+        this.saveToStorage();
+        this.render();
+    }
+
+    toggleDone(id) {
+        this.tasks.forEach(task => {
+            if (task.id === id) {
+                task.done = !task.done;
+            }
+        });
+
+        this.saveToStorage();
+        this.render();
+    }
+
+    editTask(id) {
+        const task = this.tasks.find(t => t.id === id);
+        const newText = prompt("Edit task:", task.text);
+
+        if (!newText || !newText.trim()) return;
+
+        task.text = newText.trim();
+
+        this.saveToStorage();
+        this.render();
+    }
+
+    createButton(text, className, handler) {
+        const btn = document.createElement("button");
+        btn.innerText = text;
+        btn.className = className;
+        btn.addEventListener("click", handler);
+        return btn;
+    }
+
+    render() {
+        this.list.innerHTML = "";
+
+        this.tasks.forEach(task => {
+            const li = document.createElement("li");
+
+            const span = document.createElement("span");
+            span.innerText = task.text;
+
+            if (task.done) span.classList.add("done");
+
+            span.addEventListener("click", () => this.toggleDone(task.id));
+
+            const actions = document.createElement("div");
+
+            // ✅ FIXED BUTTONS
+            const doneBtn = this.createButton("✔", "done-btn", () => this.toggleDone(task.id));
+            const editBtn = this.createButton("✏", "edit-btn", () => this.editTask(task.id));
+            const delBtn = this.createButton("🗑", "delete-btn", () => this.deleteTask(task.id));
+
+            actions.appendChild(doneBtn);
+            actions.appendChild(editBtn);
+            actions.appendChild(delBtn);
+
+            li.appendChild(span);
+            li.appendChild(actions);
+
+            this.list.appendChild(li);
+        });
+    }
+
+    saveToStorage() {
+        localStorage.setItem("tasks", JSON.stringify(this.tasks));
+    }
+
+    loadFromStorage() {
+        const data = localStorage.getItem("tasks");
+        return data ? JSON.parse(data) : [];
+    }
+}
+
+new TodoApp();
+</script>
+
+</body>
+</html>
